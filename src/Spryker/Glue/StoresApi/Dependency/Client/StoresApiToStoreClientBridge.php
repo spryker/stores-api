@@ -24,17 +24,11 @@ class StoresApiToStoreClientBridge implements StoresApiToStoreClientInterface
         $this->storeClient = $storeClient;
     }
 
-    /**
-     * @return bool
-     */
     public function isDynamicStoreEnabled(): bool
     {
         return $this->storeClient->isDynamicStoreEnabled();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\StoreTransfer
-     */
     public function getCurrentStore(): StoreTransfer
     {
         return $this->storeClient->getCurrentStore();

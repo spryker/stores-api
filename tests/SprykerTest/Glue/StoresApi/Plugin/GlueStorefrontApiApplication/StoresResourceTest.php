@@ -30,9 +30,6 @@ class StoresResourceTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testGetTypeShouldReturnCorrectType(): void
     {
         //Act
@@ -43,9 +40,6 @@ class StoresResourceTest extends Unit
         $this->assertSame($type, StoresApiConfig::RESOURCE_STORES);
     }
 
-    /**
-     * @return void
-     */
     public function testDeclaredMethodsShouldReturnCorrectGlueResourceMethodCollectionTransfer(): void
     {
         //Act

@@ -9,8 +9,5 @@ namespace Spryker\Glue\StoresApi\Dependency\Client;
 
 interface StoresApiToLocaleClientInterface
 {
-    /**
-     * @return string
-     */
     public function getCurrentLocale(): string;
 }

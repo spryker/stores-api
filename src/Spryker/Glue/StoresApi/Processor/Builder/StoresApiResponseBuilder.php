@@ -35,22 +35,12 @@ class StoresApiResponseBuilder implements StoresApiResponseBuilderInterface
      */
     protected StoresApiToGlossaryStorageClientInterface $glossaryStorageClient;
 
-    /**
-     * @param \Spryker\Glue\StoresApi\Dependency\Client\StoresApiToGlossaryStorageClientInterface $glossaryStorageClient
-     */
     public function __construct(
         StoresApiToGlossaryStorageClientInterface $glossaryStorageClient
     ) {
         $this->glossaryStorageClient = $glossaryStorageClient;
     }
 
-    /**
-     * @param string $currentLocale
-     * @param \Generated\Shared\Transfer\GlueResponseTransfer $glueResponseTransfer
-     * @param \Generated\Shared\Transfer\StoreStorageTransfer|null $storeStorageTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueResponseTransfer
-     */
     public function createSingleResourceGlueResponseTransfer(
         string $currentLocale,
         GlueResponseTransfer $glueResponseTransfer,
@@ -100,11 +90,6 @@ class StoresApiResponseBuilder implements StoresApiResponseBuilderInterface
         return $stores;
     }
 
-    /**
-     * @param string $currentLocale
-     *
-     * @return \Generated\Shared\Transfer\GlueResponseTransfer
-     */
     public function create404GlueResponseTransfer(string $currentLocale): GlueResponseTransfer
     {
         $glueResponseTransfer = new GlueResponseTransfer();
@@ -126,12 +111,6 @@ class StoresApiResponseBuilder implements StoresApiResponseBuilderInterface
         return $glueResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     * @param \Generated\Shared\Transfer\StoreStorageTransfer $storeStorageTransfer
-     *
-     * @return \Generated\Shared\Transfer\StoreStorageTransfer
-     */
     public function mapStoreTransferToStoreStorageTransfer(
         StoreTransfer $storeTransfer,
         StoreStorageTransfer $storeStorageTransfer
@@ -142,12 +121,6 @@ class StoresApiResponseBuilder implements StoresApiResponseBuilderInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreStorageTransfer $storeStorageTransfer
-     * @param \Generated\Shared\Transfer\GlueResponseTransfer $glueResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueResponseTransfer
-     */
     protected function mapStoreStorageTransferToGlueResponseTransfer(
         StoreStorageTransfer $storeStorageTransfer,
         GlueResponseTransfer $glueResponseTransfer
@@ -163,12 +136,6 @@ class StoresApiResponseBuilder implements StoresApiResponseBuilderInterface
         return $glueResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreStorageTransfer $storeStorageTransfer
-     * @param \Generated\Shared\Transfer\ApiStoreAttributesTransfer $apiStoreAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\ApiStoreAttributesTransfer
-     */
     protected function mapStoreStorageTransferToApiStoreAttributesTransfer(
         StoreStorageTransfer $storeStorageTransfer,
         ApiStoreAttributesTransfer $apiStoreAttributesTransfer

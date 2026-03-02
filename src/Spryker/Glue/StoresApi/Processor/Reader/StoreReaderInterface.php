@@ -12,18 +12,7 @@ use Generated\Shared\Transfer\GlueResponseTransfer;
 
 interface StoreReaderInterface
 {
-    /**
-     * @param string $storeId
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueResponseTransfer
-     */
     public function getStore(string $storeId, GlueRequestTransfer $glueRequestTransfer): GlueResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueResponseTransfer
-     */
     public function getStoreCollection(GlueRequestTransfer $glueRequestTransfer): GlueResponseTransfer;
 }

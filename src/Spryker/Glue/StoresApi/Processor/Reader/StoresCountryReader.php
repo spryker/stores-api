@@ -25,10 +25,6 @@ class StoresCountryReader implements StoresCountryReaderInterface
      */
     protected $storesCountryResourceMapper;
 
-    /**
-     * @param \Spryker\Glue\StoresApi\Dependency\Client\StoresApiToCountryClientInterface $countryClient
-     * @param \Spryker\Glue\StoresApi\Processor\Mapper\StoresCountryResourceMapperInterface $storesCountryResourceMapper
-     */
     public function __construct(
         StoresApiToCountryClientInterface $countryClient,
         StoresCountryResourceMapperInterface $storesCountryResourceMapper

@@ -43,13 +43,6 @@ class StoreReader implements StoreReaderInterface
      */
     protected StoresApiToStoreClientInterface $storeClient;
 
-    /**
-     * @param \Spryker\Glue\StoresApi\Dependency\Client\StoresApiToStoreStorageClientInterface $storeStorageClient
-     * @param \Spryker\Glue\StoresApi\Processor\Builder\StoresApiResponseBuilderInterface $storesApiResponseBuilder
-     * @param \Spryker\Glue\StoresApi\Processor\Expander\StoreExpanderInterface $storeExpander
-     * @param \Spryker\Glue\StoresApi\Dependency\Client\StoresApiToLocaleClientInterface $localeClient
-     * @param \Spryker\Glue\StoresApi\Dependency\Client\StoresApiToStoreClientInterface $storeClient
-     */
     public function __construct(
         StoresApiToStoreStorageClientInterface $storeStorageClient,
         StoresApiResponseBuilderInterface $storesApiResponseBuilder,
@@ -64,12 +57,6 @@ class StoreReader implements StoreReaderInterface
         $this->storeClient = $storeClient;
     }
 
-    /**
-     * @param string $store
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueResponseTransfer
-     */
     public function getStore(string $store, GlueRequestTransfer $glueRequestTransfer): GlueResponseTransfer
     {
         $currentLocale = $this->localeClient->getCurrentLocale();
@@ -105,11 +92,6 @@ class StoreReader implements StoreReaderInterface
         return $this->expandGlueResponseTransfer($glueResponseTransfer, $storesArray);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueResponseTransfer
-     */
     public function getStoreCollection(GlueRequestTransfer $glueRequestTransfer): GlueResponseTransfer
     {
         /* Required by infrastructure, exists only for BC with DMS OFF mode. */

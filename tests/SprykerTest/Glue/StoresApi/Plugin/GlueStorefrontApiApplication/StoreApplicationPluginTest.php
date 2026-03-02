@@ -65,9 +65,6 @@ class StoreApplicationPluginTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testStoreApplicationPluginSetStoreFromHeader(): void
     {
         // Arrange
@@ -82,9 +79,6 @@ class StoreApplicationPluginTest extends Unit
         $this->assertEquals(static::DE_STORE_NAME, $resultContainer->get(static::SERVICE_STORE));
     }
 
-    /**
-     * @return void
-     */
     public function testStoreApplicationPluginSetStoreFromParameter(): void
     {
         // Arrange
@@ -98,9 +92,6 @@ class StoreApplicationPluginTest extends Unit
         $this->assertEquals(static::DE_STORE_NAME, $resultContainer->get(static::SERVICE_STORE));
     }
 
-    /**
-     * @return void
-     */
     public function testStoreApplicationPluginSetStoreFromHeaderAndParameter(): void
     {
         // Arrange
@@ -129,11 +120,6 @@ class StoreApplicationPluginTest extends Unit
         return $mockFactory;
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $mockRequest
-     *
-     * @return \Spryker\Service\Container\ContainerInterface
-     */
     protected function provide(Request $mockRequest): ContainerInterface
     {
         $container = $this->tester->createContainer();

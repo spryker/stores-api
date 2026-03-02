@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\CurrencyTransfer;
 
 interface StoresCurrencyResourceMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     * @param \Generated\Shared\Transfer\ApiStoreCurrencyAttributesTransfer $apiStoreCurrencyAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\ApiStoreCurrencyAttributesTransfer
-     */
     public function mapCurrencyToStoresCurrencyRestAttributes(
         CurrencyTransfer $currencyTransfer,
         ApiStoreCurrencyAttributesTransfer $apiStoreCurrencyAttributesTransfer

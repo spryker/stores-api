@@ -22,19 +22,11 @@ class StoreProvider implements StoreProviderInterface
      */
     protected StoreResolverInterface $storeResolver;
 
-    /**
-     * @param \Spryker\Glue\StoresApi\Processor\Resolver\StoreResolverInterface $storeResolver
-     */
     public function __construct(StoreResolverInterface $storeResolver)
     {
         $this->storeResolver = $storeResolver;
     }
 
-    /**
-     * @param \Spryker\Service\Container\ContainerInterface $container
-     *
-     * @return \Spryker\Service\Container\ContainerInterface
-     */
     public function provide(ContainerInterface $container): ContainerInterface
     {
         $storeName = $this->storeResolver->resolveStoreName();

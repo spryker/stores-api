@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\CountryTransfer;
 
 class StoresCountryResourceMapper implements StoresCountryResourceMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CountryTransfer $countryTransfer
-     * @param \Generated\Shared\Transfer\ApiStoreCountryAttributesTransfer $apiStoreCountryAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\ApiStoreCountryAttributesTransfer
-     */
     public function mapCountryToStoresCountryRestAttributes(
         CountryTransfer $countryTransfer,
         ApiStoreCountryAttributesTransfer $apiStoreCountryAttributesTransfer

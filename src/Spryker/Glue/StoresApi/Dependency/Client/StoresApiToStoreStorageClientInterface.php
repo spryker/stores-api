@@ -11,11 +11,6 @@ use Generated\Shared\Transfer\StoreStorageTransfer;
 
 interface StoresApiToStoreStorageClientInterface
 {
-    /**
-     * @param string $name
-     *
-     * @return \Generated\Shared\Transfer\StoreStorageTransfer|null
-     */
     public function findStoreByName(string $name): ?StoreStorageTransfer;
 
     /**

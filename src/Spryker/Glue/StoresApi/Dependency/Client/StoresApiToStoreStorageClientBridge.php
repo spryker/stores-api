@@ -25,11 +25,6 @@ class StoresApiToStoreStorageClientBridge implements StoresApiToStoreStorageClie
         $this->storeStorageClient = $storeStorageClient;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return \Generated\Shared\Transfer\StoreStorageTransfer|null
-     */
     public function findStoreByName(string $name): ?StoreStorageTransfer
     {
         return $this->storeStorageClient->findStoreByName($name);

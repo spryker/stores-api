@@ -25,11 +25,6 @@ class StoresApiToCountryClientBridge implements StoresApiToCountryClientInterfac
         $this->countryClient = $countryClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CountryCollectionTransfer $countryCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\CountryCollectionTransfer
-     */
     public function findCountriesByIso2Codes(CountryCollectionTransfer $countryCollectionTransfer): CountryCollectionTransfer
     {
         return $this->countryClient->findCountriesByIso2Codes($countryCollectionTransfer);

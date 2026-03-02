@@ -39,49 +39,31 @@ class StoresApiTester extends Actor
 {
     use _generated\StoresApiTesterActions;
 
-    /**
-     * @return \Spryker\Glue\GlueJsonApiConventionExtension\Dependency\Plugin\JsonApiResourceInterface
-     */
     public function createStoresResource(): JsonApiResourceInterface
     {
         return new StoresResource();
     }
 
-    /**
-     * @return \Spryker\Service\Container\ContainerInterface
-     */
     public function createContainer(): ContainerInterface
     {
         return new Container();
     }
 
-    /**
-     * @return \Spryker\Shared\ApplicationExtension\Dependency\Plugin\ApplicationPluginInterface
-     */
     public function createStoreApplicationPlugin(): ApplicationPluginInterface
     {
         return new StoreApplicationPlugin();
     }
 
-    /**
-     * @return \Spryker\Shared\ApplicationExtension\Dependency\Plugin\ApplicationPluginInterface
-     */
     public function createBackendStoreApplicationPlugin(): ApplicationPluginInterface
     {
         return new BackendStoreApplicationPlugin();
     }
 
-    /**
-     * @return \Spryker\Glue\GlueApplicationExtension\Dependency\Plugin\RequestValidatorPluginInterface
-     */
     public function createStoreValidatorPlugin(): RequestValidatorPluginInterface
     {
         return new StoreValidatorPlugin();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\GlueRequestTransfer
-     */
     public function createGlueRequestTransfer(): GlueRequestTransfer
     {
         return new GlueRequestTransfer();

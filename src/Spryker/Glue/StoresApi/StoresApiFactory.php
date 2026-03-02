@@ -41,9 +41,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class StoresApiFactory extends AbstractStorefrontApiFactory
 {
-    /**
-     * @return \Spryker\Glue\StoresApi\Processor\Reader\StoreReaderInterface
-     */
     public function createStoreReader(): StoreReaderInterface
     {
         return new StoreReader(
@@ -55,33 +52,21 @@ class StoresApiFactory extends AbstractStorefrontApiFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\StoresApi\Processor\Builder\StoresApiResponseBuilderInterface
-     */
     public function createStoresApiResponseBuilder(): StoresApiResponseBuilderInterface
     {
         return new StoresApiResponseBuilder($this->getGlossaryStorageClient());
     }
 
-    /**
-     * @return \Spryker\Glue\StoresApi\Dependency\Client\StoresApiToStoreStorageClientInterface
-     */
     public function getStoreStorageClient(): StoresApiToStoreStorageClientInterface
     {
         return $this->getProvidedDependency(StoresApiDependencyProvider::CLIENT_STORE_STORAGE);
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\Request
-     */
     public function createRequest(): Request
     {
         return Request::createFromGlobals();
     }
 
-    /**
-     * @return \Spryker\Glue\StoresApi\Processor\Reader\StoresCountryReaderInterface
-     */
     public function createStoresCountryReader(): StoresCountryReaderInterface
     {
         return new StoresCountryReader(
@@ -90,25 +75,16 @@ class StoresApiFactory extends AbstractStorefrontApiFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\StoresApi\Processor\Mapper\StoresCountryResourceMapperInterface
-     */
     public function createStoresCountryResourceMapper(): StoresCountryResourceMapperInterface
     {
         return new StoresCountryResourceMapper();
     }
 
-    /**
-     * @return \Spryker\Glue\StoresApi\Dependency\Client\StoresApiToCountryClientInterface
-     */
     public function getCountryClient(): StoresApiToCountryClientInterface
     {
         return $this->getProvidedDependency(StoresApiDependencyProvider::CLIENT_COUNTRY);
     }
 
-    /**
-     * @return \Spryker\Glue\StoresApi\Processor\Reader\StoresCurrencyReaderInterface
-     */
     public function createStoresCurrencyReader(): StoresCurrencyReaderInterface
     {
         return new StoresCurrencyReader(
@@ -117,17 +93,11 @@ class StoresApiFactory extends AbstractStorefrontApiFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\StoresApi\Processor\Mapper\StoresCurrencyResourceMapperInterface
-     */
     public function createStoresCurrencyResourceMapper(): StoresCurrencyResourceMapperInterface
     {
         return new StoresCurrencyResourceMapper();
     }
 
-    /**
-     * @return \Spryker\Glue\StoresApi\Processor\Expander\StoreExpanderInterface
-     */
     public function createStoreExpander(): StoreExpanderInterface
     {
         return new StoreExpander(
@@ -136,41 +106,26 @@ class StoresApiFactory extends AbstractStorefrontApiFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\StoresApi\Dependency\Client\StoresApiToCurrencyClientInterface
-     */
     public function getCurrencyClient(): StoresApiToCurrencyClientInterface
     {
         return $this->getProvidedDependency(StoresApiDependencyProvider::CLIENT_CURRENCY);
     }
 
-    /**
-     * @return \Spryker\Glue\StoresApi\Dependency\Client\StoresApiToGlossaryStorageClientInterface
-     */
     public function getGlossaryStorageClient(): StoresApiToGlossaryStorageClientInterface
     {
         return $this->getProvidedDependency(StoresApiDependencyProvider::CLIENT_GLOSSARY_STORAGE);
     }
 
-    /**
-     * @return \Spryker\Glue\StoresApi\Dependency\Client\StoresApiToLocaleClientInterface
-     */
     public function getLocaleClient(): StoresApiToLocaleClientInterface
     {
         return $this->getProvidedDependency(StoresApiDependencyProvider::CLIENT_LOCALE);
     }
 
-    /**
-     * @return \Spryker\Glue\StoresApi\Dependency\Client\StoresApiToStoreClientInterface
-     */
     public function getStoreClient(): StoresApiToStoreClientInterface
     {
         return $this->getProvidedDependency(StoresApiDependencyProvider::CLIENT_STORE);
     }
 
-    /**
-     * @return \Spryker\Glue\StoresApi\Processor\Validator\StoreValidatorInterface
-     */
     public function createStoreRequestValidator(): StoreValidatorInterface
     {
         return new StoreValidator(
@@ -179,9 +134,6 @@ class StoresApiFactory extends AbstractStorefrontApiFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\StoresApi\Processor\Resolver\StoreResolverInterface
-     */
     public function createStoreResolver(): StoreResolverInterface
     {
         return new StoreResolver(
@@ -190,9 +142,6 @@ class StoresApiFactory extends AbstractStorefrontApiFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\StoresApi\Processor\StoreProvider\StoreProviderInterface
-     */
     public function createStoreProvider(): StoreProviderInterface
     {
         return new StoreProvider($this->createStoreResolver());

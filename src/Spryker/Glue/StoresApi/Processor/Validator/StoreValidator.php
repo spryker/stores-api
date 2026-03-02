@@ -27,10 +27,6 @@ class StoreValidator implements StoreValidatorInterface
      */
     protected StoresApiToStoreClientInterface $storeClient;
 
-    /**
-     * @param \Spryker\Glue\StoresApi\Dependency\Client\StoresApiToStoreClientInterface $storeClient
-     * @param \Spryker\Glue\StoresApi\Dependency\Client\StoresApiToStoreStorageClientInterface $storeStorageClient
-     */
     public function __construct(
         StoresApiToStoreClientInterface $storeClient,
         StoresApiToStoreStorageClientInterface $storeStorageClient
@@ -39,11 +35,6 @@ class StoreValidator implements StoreValidatorInterface
         $this->storeStorageClient = $storeStorageClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GlueRequestTransfer $glueRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueRequestValidationTransfer
-     */
     public function validate(GlueRequestTransfer $glueRequestTransfer): GlueRequestValidationTransfer
     {
         $storeNames = $this->storeStorageClient->getStoreNames();
@@ -57,9 +48,6 @@ class StoreValidator implements StoreValidatorInterface
             ->addError($this->createStoreNotFoundError());
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\GlueErrorTransfer
-     */
     protected function createStoreNotFoundError(): GlueErrorTransfer
     {
         return (new GlueErrorTransfer())

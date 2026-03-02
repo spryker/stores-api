@@ -33,10 +33,6 @@ class StoreResolver implements StoreResolverInterface
      */
     protected Request $request;
 
-    /**
-     * @param \Spryker\Glue\StoresApi\Dependency\Client\StoresApiToStoreStorageClientInterface $storeStorageClient
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     */
     public function __construct(
         StoresApiToStoreStorageClientInterface $storeStorageClient,
         Request $request
@@ -71,9 +67,6 @@ class StoreResolver implements StoreResolverInterface
         return $defaultStoreName;
     }
 
-    /**
-     * @return string|null
-     */
     protected function findStoreName(): ?string
     {
         if ($this->request->query->has(static::PARAMETER_STORE_NAME)) {

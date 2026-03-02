@@ -35,10 +35,6 @@ class StoreExpander implements StoreExpanderInterface
      */
     protected StoresCurrencyReaderInterface $currencyReader;
 
-    /**
-     * @param \Spryker\Glue\StoresApi\Processor\Reader\StoresCountryReaderInterface $countryReader
-     * @param \Spryker\Glue\StoresApi\Processor\Reader\StoresCurrencyReaderInterface $currencyReader
-     */
     public function __construct(
         StoresCountryReaderInterface $countryReader,
         StoresCurrencyReaderInterface $currencyReader

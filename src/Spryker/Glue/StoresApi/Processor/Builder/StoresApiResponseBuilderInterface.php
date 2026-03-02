@@ -13,13 +13,6 @@ use Generated\Shared\Transfer\StoreTransfer;
 
 interface StoresApiResponseBuilderInterface
 {
-    /**
-     * @param string $currentLocale
-     * @param \Generated\Shared\Transfer\GlueResponseTransfer $glueResponseTransfer
-     * @param \Generated\Shared\Transfer\StoreStorageTransfer|null $storeStorageTransfer
-     *
-     * @return \Generated\Shared\Transfer\GlueResponseTransfer
-     */
     public function createSingleResourceGlueResponseTransfer(
         string $currentLocale,
         GlueResponseTransfer $glueResponseTransfer,
@@ -44,19 +37,8 @@ interface StoresApiResponseBuilderInterface
      */
     public function mapStoreStorageTransfersToStoresArray(array $storeStorageTransfers): array;
 
-    /**
-     * @param string $currentLocale
-     *
-     * @return \Generated\Shared\Transfer\GlueResponseTransfer
-     */
     public function create404GlueResponseTransfer(string $currentLocale): GlueResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     * @param \Generated\Shared\Transfer\StoreStorageTransfer $storeStorageTransfer
-     *
-     * @return \Generated\Shared\Transfer\StoreStorageTransfer
-     */
     public function mapStoreTransferToStoreStorageTransfer(
         StoreTransfer $storeTransfer,
         StoreStorageTransfer $storeStorageTransfer

@@ -46,9 +46,6 @@ class StoreValidatorPluginTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testValidateCallsStoreValidatorValidateMethod(): void
     {
         // Act
@@ -59,9 +56,6 @@ class StoreValidatorPluginTest extends Unit
         $this->assertTrue($result->getIsValid());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateReturnsInvalidValidationTransferWhenStoreIsInvalid(): void
     {
         // Act
@@ -108,12 +102,6 @@ class StoreValidatorPluginTest extends Unit
         return $storeClientMock;
     }
 
-    /**
-     * @param string $currentStoreName
-     * @param string $storeName
-     *
-     * @return \Spryker\Glue\StoresApi\Processor\Validator\StoreValidatorInterface
-     */
     protected function createStoreValidator(
         string $currentStoreName,
         string $storeName
@@ -139,12 +127,6 @@ class StoreValidatorPluginTest extends Unit
         return $storeStorageClientMock;
     }
 
-    /**
-     * @param string $currentStoreName
-     * @param string $storeName
-     *
-     * @return \Generated\Shared\Transfer\GlueRequestValidationTransfer
-     */
     protected function validate(
         string $currentStoreName,
         string $storeName

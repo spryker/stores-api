@@ -51,6 +51,7 @@
         <property name="availableLocaleIsoCodes" type="array" singular="availableLocaleCode" description="A list of ISO codes for available locales in a store."/>
         <property name="availableCurrencyIsoCodes" type="array" singular="availableCurrencyIsoCode" description="A list of ISO codes for available currencies in a store."/>
         <property name="countries" type="array" singular="country" description="A collection of countries."/>
+        <property name="countryNames" type="string[]" singular="countryName"/>
     </transfer>
 
     <transfer name="GlueResponse">

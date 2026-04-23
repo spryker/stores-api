@@ -19,13 +19,15 @@
         "spryker/transfer": "^3.42.0"
     },
     "require-dev": {
+        "spryker/api-platform": "*",
         "spryker/code-sniffer": "*",
         "spryker/container": "*",
         "spryker/glue-application": "*",
         "spryker/testify": "*"
     },
     "suggest": {
-        "spryker/glue-application": "If you want to use plugins with glue application."
+        "spryker/glue-application": "If you want to use plugins with glue application.",
+        "spryker/api-platform": "If you want to use API Platform for REST API endpoints."
     },
     "autoload": {
         "psr-4": {

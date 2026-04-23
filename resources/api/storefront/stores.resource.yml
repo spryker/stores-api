@@ -1,0 +1,60 @@
+resource:
+    name: Stores
+    shortName: stores
+    description: Store management API for storefront operations
+
+    provider: Spryker\Glue\StoresApi\Api\Storefront\Provider\StoresStorefrontProvider
+
+    paginationEnabled: true
+    paginationItemsPerPage: 10
+
+    operations:
+        - type: Get
+        - type: GetCollection
+
+    properties:
+        name:
+            type: string
+            description: The unique store name identifier
+            identifier: true
+            openapiContext:
+                example: DE
+
+        defaultCurrency:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: Default currency ISO code
+            openapiContext:
+                example: EUR
+
+        timeZone:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: Store timezone
+            openapiContext:
+                example: Europe/Berlin
+
+        currencies:
+            type: array
+            writable: false
+            readable: true
+            required: false
+            description: Available currencies
+
+        locales:
+            type: array
+            writable: false
+            readable: true
+            required: false
+            description: Available locales
+
+        countries:
+            type: array
+            writable: false
+            readable: true
+            required: false
+            description: Available countries

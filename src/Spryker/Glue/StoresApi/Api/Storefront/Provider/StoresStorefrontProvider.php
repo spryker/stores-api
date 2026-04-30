@@ -13,6 +13,7 @@ use Generated\Api\Storefront\StoresStorefrontResource;
 use Generated\Shared\Transfer\StoreStorageTransfer;
 use Spryker\ApiPlatform\Exception\GlueApiException;
 use Spryker\ApiPlatform\State\Provider\AbstractStorefrontProvider;
+use Spryker\Client\Store\StoreClientInterface;
 use Spryker\Client\StoreStorage\StoreStorageClientInterface;
 use Spryker\Glue\Store\StoreConfig;
 use Spryker\Service\Serializer\SerializerServiceInterface;
@@ -25,6 +26,7 @@ class StoresStorefrontProvider extends AbstractStorefrontProvider
 
     public function __construct(
         protected StoreStorageClientInterface $storeStorageClient,
+        protected StoreClientInterface $storeClient,
         protected SerializerServiceInterface $serializer,
     ) {
     }
@@ -104,7 +106,7 @@ class StoresStorefrontProvider extends AbstractStorefrontProvider
         return [
             'name' => $storeStorageTransfer->getName(),
             'defaultCurrency' => $storeStorageTransfer->getDefaultCurrencyIsoCode(),
-            'timeZone' => null,
+            'timeZone' => $this->storeClient->getStoreByName($storeStorageTransfer->getNameOrFail())->getTimezone(),
             'currencies' => array_map(
                 fn (string $code): array => [
                     'code' => $code,

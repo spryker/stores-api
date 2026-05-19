@@ -10,9 +10,13 @@ declare(strict_types=1);
 namespace Spryker\Glue\StoresApi\Api\Storefront\Provider;
 
 use Generated\Api\Storefront\StoresStorefrontResource;
+use Generated\Shared\Transfer\ApiStoreCountryAttributesTransfer;
+use Generated\Shared\Transfer\CountryCollectionTransfer;
+use Generated\Shared\Transfer\CountryTransfer;
 use Generated\Shared\Transfer\StoreStorageTransfer;
 use Spryker\ApiPlatform\Exception\GlueApiException;
 use Spryker\ApiPlatform\State\Provider\AbstractStorefrontProvider;
+use Spryker\Client\Country\CountryClientInterface;
 use Spryker\Client\Store\StoreClientInterface;
 use Spryker\Client\StoreStorage\StoreStorageClientInterface;
 use Spryker\Glue\Store\StoreConfig;
@@ -28,6 +32,7 @@ class StoresStorefrontProvider extends AbstractStorefrontProvider
         protected StoreStorageClientInterface $storeStorageClient,
         protected StoreClientInterface $storeClient,
         protected SerializerServiceInterface $serializer,
+        protected CountryClientInterface $countryClient,
     ) {
     }
 
@@ -115,16 +120,41 @@ class StoresStorefrontProvider extends AbstractStorefrontProvider
                 $storeStorageTransfer->getAvailableCurrencyIsoCodes(),
             ),
             'locales' => $locales,
-            'countries' => array_map(
-                static fn (string $iso2Code): array => [
-                    'iso2Code' => $iso2Code,
-                    'iso3Code' => '',
-                    'name' => $countryNames[$iso2Code] ?? $iso2Code,
-                    'postalCodeMandatory' => false,
-                    'postalCodeRegex' => null,
-                ],
-                $storeStorageTransfer->getCountries(),
-            ),
+            'countries' => $this->loadCountries($storeStorageTransfer->getCountries()),
         ];
+    }
+
+    /**
+     * Hydrates full {@see CountryTransfer} (iso3Code, full name, postal-code metadata, regions)
+     * from the Country bundle instead of synthesizing a stub from `StoreStorageTransfer`, which only
+     * has iso2 codes. Mirrors the legacy `stores-rest-api` behavior via `StoresCountryReader`.
+     *
+     * @param array<string> $iso2Codes
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    protected function loadCountries(array $iso2Codes): array
+    {
+        if ($iso2Codes === []) {
+            return [];
+        }
+
+        $countryCollectionTransfer = new CountryCollectionTransfer();
+
+        foreach ($iso2Codes as $iso2Code) {
+            $countryCollectionTransfer->addCountries((new CountryTransfer())->setIso2Code($iso2Code));
+        }
+
+        $countryCollectionTransfer = $this->countryClient->findCountriesByIso2Codes($countryCollectionTransfer);
+
+        $countries = [];
+
+        foreach ($countryCollectionTransfer->getCountries() as $countryTransfer) {
+            $countries[] = (new ApiStoreCountryAttributesTransfer())
+                ->fromArray($countryTransfer->toArray(true), true)
+                ->toArray(true, true);
+        }
+
+        return $countries;
     }
 }

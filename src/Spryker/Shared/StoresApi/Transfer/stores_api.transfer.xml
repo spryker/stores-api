@@ -15,6 +15,7 @@
         <property name="name" type="string" description="The name of an entity (e.g., user, category, product, role)."/>
         <property name="postalCodeMandatory" type="bool" description="A flag indicating if a postal code is mandatory."/>
         <property name="postalCodeRegex" type="string" description="A regular expression for validating postal codes."/>
+        <property name="regions" type="array" singular="region" description="A collection of geographical regions of the country."/>
     </transfer>
 
     <transfer name="ApiStoreLocaleAttributes" strict="true">

@@ -19,11 +19,15 @@ class StoresApiConfig extends AbstractBundleConfig
     public const RESOURCE_STORES = 'stores';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_CODE_STORE_NOT_FOUND = '601';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const GLOSSARY_KEY_VALIDATION_STORE_NOT_FOUND = 'store.validation.store_not_found';

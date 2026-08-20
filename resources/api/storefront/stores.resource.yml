@@ -10,7 +10,17 @@ resource:
 
     operations:
         - type: Get
+          openapiContext:
+              responses:
+                  200:
+                      description: 'The store configuration.'
+                  404:
+                      description: 'No published store with this name.'
         - type: GetCollection
+          openapiContext:
+              responses:
+                  200:
+                      description: 'The published stores.'
 
     properties:
         name:

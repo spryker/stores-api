@@ -84,6 +84,7 @@
 
     <transfer name="Store">
         <property name="name" type="string" description="The name of an entity (e.g., user, category, product, role)."/>
+        <property name="timezone" type="string"/>
     </transfer>
 
     <transfer name="GlueRequestValidation">

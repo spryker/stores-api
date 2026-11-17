@@ -106,8 +106,6 @@ class StoresStorefrontProvider extends AbstractStorefrontProvider
             ];
         }
 
-        $countryNames = $storeStorageTransfer->getCountryNames();
-
         return [
             'name' => $storeStorageTransfer->getName(),
             'defaultCurrency' => $storeStorageTransfer->getDefaultCurrencyIsoCode(),
